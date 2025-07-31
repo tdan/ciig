@@ -6,7 +6,7 @@ namespace App\Database\Migrations;
 
 use Override;
 
-class CreatePostsTable extends BaseMigration {
+class CreateHashtagsTable extends BaseMigration {
 
     #[Override]
     public function up(): void {
@@ -17,21 +17,10 @@ class CreatePostsTable extends BaseMigration {
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'user_id' => [
-                'type' => 'INT',
-                'unsigned' => true,
-            ],
-            'file_path' => [
+            'tag' => [
                 'type' => 'VARCHAR',
-                'constraint' => '255',
-            ],
-            'file_type' => [
-                'type' => 'VARCHAR',
-                'constraint' => '50',
-            ],
-            'description' => [
-                'type' => 'TEXT',
-                'null' => true,
+                'constrait' => '100',
+                'unique' => true,
             ],
             'created_at' => [
                 'type' =>  'DATETIME',
@@ -44,13 +33,12 @@ class CreatePostsTable extends BaseMigration {
         ]);
 
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('posts');
+        $this->forge->createTable('hashtags');
     }
 
     #[Override]
     public function down(): void {
-        $this->forge->dropTable('posts');
+        $this->forge->dropTable('hashtags');
     }
 }
 ?>
