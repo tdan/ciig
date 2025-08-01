@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="winter">
+<html lang="en" data-theme="dim">
 <head>
     <meta charset="UTF-8">
     <title><?php echo $title; ?></title>
@@ -11,6 +11,3 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
           rel="stylesheet" type="text/css" />
 </head>
-
-<body>
-    <div class="container mx-auto p-4">
